@@ -4,7 +4,7 @@
   min-height: 100vh;
   display: flex;
   
-  background-image: url("C:\Users\5upvi\OneDrive\Desktop\p\mern-chat-app\frontend\src\purple.jpg");
+  background-image: url("./purple.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
