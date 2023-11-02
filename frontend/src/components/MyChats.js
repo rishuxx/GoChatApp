@@ -77,7 +77,7 @@ const MyChats = ({ fetchAgain }) => {
             border={"1px"}
             borderColor={"white"}
             borderRadius="10px"
-            fontSize={{ base: "17px", md: "10px", lg: "17px" }}
+            fontSize={{ base: "11px", md: "10px", lg: "15px" }}
             rightIcon={<AddIcon />}
           >
             GoGroup Chat
