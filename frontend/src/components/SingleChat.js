@@ -1,8 +1,8 @@
 import { FormControl } from "@chakra-ui/form-control";
-import { Input } from "@chakra-ui/input";
+import { Input, InputGroup, InputRightElement } from "@chakra-ui/input";
 import { Box, Text } from "@chakra-ui/layout";
 import "./styles.css";
-import { IconButton, Spinner, useToast } from "@chakra-ui/react";
+import { Button, IconButton, Spinner, useToast } from "@chakra-ui/react";
 import { getSender, getSenderFull } from "../config/ChatLogics";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -71,7 +71,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   };
 
   const sendMessage = async (event) => {
-    if (event.key === "Enter" && newMessage) {
+    if ((event.key === "Enter" || event.type === "click") && newMessage) {
       socket.emit("stop typing", selectedChat._id);
       try {
         const config = {
@@ -174,8 +174,10 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
             alignItems="center"
           >
             <IconButton
+            colorScheme=""
+            size="l"
               d={{ base: "flex", md: "none" }}
-              icon={<ArrowBackIcon color="black"/>}
+              icon={<ArrowBackIcon color="" />}
               onClick={() => setSelectedChat("")}
             />
             {messages &&
@@ -210,7 +212,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
           >
             {loading ? (
               <Spinner
-              color="white"
+                color="white"
                 size="xl"
                 w={20}
                 h={20}
@@ -224,7 +226,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
             )}
 
             <FormControl
-            color={"white"}
+              color={"white"}
               onKeyDown={sendMessage}
               id="first-name"
               isRequired
@@ -242,13 +244,33 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
               ) : (
                 <></>
               )}
-              <Input
-                variant="outline"
-                bg="transparent"
-                placeholder="Message"
-                value={newMessage}
-                onChange={typingHandler}
-              />
+
+              <InputGroup>
+                <Input
+                  variant="outline"
+                  bg="transparent"
+                  placeholder="Message"
+                  value={newMessage}
+                  onChange={typingHandler}
+                  borderRadius={"10"}
+                />
+                <InputRightElement width="4.5rem">
+                  <Button
+                    h="1.75rem"
+                    size="sm"
+                    colorScheme=""
+                    mt={0.5}
+                    onClick={sendMessage}
+                  >
+                    <img
+                      width="24"
+                      height="24"
+                      src="https://img.icons8.com/material-rounded/24/FFFFFF/filled-sent.png"
+                      alt="filled-sent"
+                    />
+                  </Button>
+                </InputRightElement>
+              </InputGroup>
             </FormControl>
           </Box>
         </>
