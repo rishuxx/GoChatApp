@@ -23,8 +23,10 @@ const ProfileModal = ({ user, children }) => {
         <span onClick={onOpen}>{children}</span>
       ) : (
         <IconButton
+          colorScheme=""
+          size='l'
           d={{ base: "flex" }}
-          icon={<ViewIcon color={"black"} bg="" size="" />}
+          icon={<ViewIcon color="white"/>}
           onClick={onOpen}
         />
       )}
