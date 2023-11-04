@@ -4,9 +4,10 @@ import { Input, InputGroup, InputRightElement } from "@chakra-ui/input";
 import { VStack } from "@chakra-ui/layout";
 import { useState } from "react";
 import axios from "axios";
-import { useToast } from "@chakra-ui/react";
+import { Icon, useToast } from "@chakra-ui/react";
 import { useHistory } from "react-router-dom";
 import { ChatState } from "../../Context/ChatProvider";
+import { FiEye, FiEyeOff } from "react-icons/fi";
 
 const Login = () => {
   const [show, setShow] = useState(false);
@@ -70,9 +71,16 @@ const Login = () => {
   };
 
   return (
-    <VStack position="relative" top="50px" spacing={"50px"} color={"white"}>
+    <VStack
+      position="relative"
+      top="50px"
+      spacing={{ base: "29px", md: "50px" }}
+      color={"white"}
+    >
       <FormControl id="email" isRequired>
-        <FormLabel>Email Address</FormLabel>
+        <FormLabel fontSize={{ base: "15px", md: "md" }}>
+          Email Address
+        </FormLabel>
         <Input
           value={email}
           type="email"
@@ -80,8 +88,9 @@ const Login = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
       </FormControl>
+
       <FormControl id="password" isRequired>
-        <FormLabel>Password</FormLabel>
+        <FormLabel fontSize={{ base: "15px", md: "md" }}>Password</FormLabel>
         <InputGroup size="md">
           <Input
             value={password}
@@ -92,14 +101,14 @@ const Login = () => {
           <InputRightElement width="4.5rem">
             {""}
             <button h="1.75rem" size="sm" onClick={handleClick}>
-              {show ? "Hide" : "Show"}
+              <Icon as={show ? FiEye : FiEyeOff} />
             </button>
           </InputRightElement>
         </InputGroup>
       </FormControl>
       <Button
         position={"relative"}
-        top="7"
+        top={{ base: "1", md: "5" }}
         as="button"
         p={5}
         color="white"

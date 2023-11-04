@@ -6,10 +6,12 @@ import { useToast } from "@chakra-ui/toast";
 import axios from "axios";
 import { useState } from "react";
 import { useHistory } from "react-router";
+import { FiEye, FiEyeOff } from "react-icons/fi";
+import { Icon } from "@chakra-ui/react";
 
 const Signup = () => {
-  const [show, setShow] = useState(false);
-  const handleClick = () => setShow(!show);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const toast = useToast();
   const history = useHistory();
 
@@ -130,9 +132,14 @@ const Signup = () => {
   };
 
   return (
-    <VStack position="relative" top="10px" spacing={"35px"} color={"white"}>
+    <VStack
+      position="relative"
+      top="px"
+      spacing={{ base: "15px", md: "35px" }}
+      color={"white"}
+    >
       <FormControl id="first-name" isRequired>
-        <FormLabel>Name</FormLabel>
+        <FormLabel fontSize={{ base: "12px", md: "md" }}>Name</FormLabel>
         <Input
           placeholder="Enter Name"
           onChange={(e) => setName(e.target.value)}
@@ -140,7 +147,7 @@ const Signup = () => {
       </FormControl>
 
       <FormControl id="email" isRequired>
-        <FormLabel>Email</FormLabel>
+        <FormLabel fontSize={{ base: "12px", md: "md" }}>Email</FormLabel>
         <Input
           type="email"
           placeholder="Your Email"
@@ -149,39 +156,52 @@ const Signup = () => {
       </FormControl>
 
       <FormControl id="password" isRequired>
-        <FormLabel>Password</FormLabel>
+        <FormLabel fontSize={{ base: "12px", md: "md" }}>Password</FormLabel>
         <InputGroup size="md">
           <Input
-            type={show ? "text" : "password"}
-            placeholder="Enter Password"
+            type={showPassword ? "text" : "password"}
+            placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
           />
           <InputRightElement width="4.5rem">
-            <button h="1.75rem" size="sm" onClick={handleClick}>
-              {show ? "Hide" : "Show"}
+            <button
+              height="1.75rem"
+              size="sm"
+              onClick={() => setShowPassword(!showPassword)}
+              color="purple.500"
+            >
+              <Icon as={showPassword ? FiEye : FiEyeOff} />
             </button>
           </InputRightElement>
         </InputGroup>
       </FormControl>
 
       <FormControl id="password" isRequired>
-        <FormLabel>Confirm Password</FormLabel>
+        <FormLabel fontSize={{ base: "12px", md: "md" }}>
+          Confirm Password
+        </FormLabel>
         <InputGroup size="md">
           <Input
-            type={show ? "text" : "password"}
-            placeholder="Confirm password"
+            type={showConfirmPassword ? "text" : "password"}
+            placeholder="RePassword"
             onChange={(e) => setConfirmpassword(e.target.value)}
           />
           <InputRightElement width="4.5rem">
-            {""}
-            <button h="1.75rem" size="sm" onClick={handleClick}>
-              {show ? "Hide" : "Show"}
+            <button
+              height="1.75rem"
+              size="sm"
+              onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+              color="purple.500"
+            >
+              <Icon as={showConfirmPassword ? FiEye : FiEyeOff} />
             </button>
           </InputRightElement>
         </InputGroup>
       </FormControl>
       <FormControl id="pic">
-        <FormLabel>Upload your Picture</FormLabel>
+        <FormLabel fontSize={{ base: "12px", md: "md" }}>
+          Upload your Picture
+        </FormLabel>
         <Input
           type="file"
           p={1.5}
@@ -190,8 +210,10 @@ const Signup = () => {
         />
       </FormControl>
       <Button
+        position={"relative"}
+        top={{ base: "1px", md: "40px" }}
         as="button"
-        p={5}
+        p={1}
         color="white"
         fontWeight="bold"
         borderRadius="md"
@@ -200,7 +222,7 @@ const Signup = () => {
           bgGradient: "linear(to-r,#8e2de2, #4a00e0)",
         }}
         width="100%"
-        style={{ marginTop: 50 }}
+        style={{ marginTop: 25 }}
         onClick={submitHandler}
         isLoading={picLoading}
       >

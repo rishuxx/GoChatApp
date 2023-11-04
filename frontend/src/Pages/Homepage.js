@@ -22,31 +22,42 @@ function Homepage() {
     if (user) history.push("/chats");
   }, [history]);
 
-  
   return (
     <Container maxW="500px" centerContent>
       <Box
         className="mbox"
         d="flex"
         justifyContent="center"
-        p={8}
-        w="100%"
-        h="85%"
-        m="80px 0 70px 0px"
+        p={{ base: 1, md: 5 }} // Adjust padding for mobile (base) and larger screens (md)
+        w={{ base: "98%", md: "500px" }} // Adjust width for mobile (base) and larger screens (md)
+        h="100%"
+        m={{ base: "20px 0 20px 0", md: "120px 0 50px 0" }}
         borderRadius={"15px"}
         borderWidth={"1px"}
-        backdropFilter="blur(50px)"
+        backdropFilter="blur(5px)"
+        background={{ base: "", md: "transparent" }}
       >
         <Text
-          fontSize="3xl"
+          fontSize={{ base: "2xl", md: "3xl" }}
+          position={"relative"}
+          top={{ base: "20px", md: "1" }}
           fontFamily="Poppins"
           textAlign="center"
           color={"white"}
         >
           {" "}
           GoChat{" "}
-          <Tabs p={10} variant="soft-rounded" colorScheme="purple">
-            <TabList>
+          <Tabs
+            position={"relative"}
+            top={"2px"}
+            size="md"
+            p={{ base: 5, md: 10 }}
+            variant="soft-rounded"
+            colorScheme="pink"
+          >
+            {" "}
+            {/*p={{ base: 4, md: 10 }} */}
+            <TabList position={"relative"} top={{ base: "1px", md: "1" }}>
               <Tab width={"50%"}>Login</Tab>
               <Tab width={"50%"}>SignUp</Tab>
             </TabList>
@@ -65,6 +76,6 @@ function Homepage() {
       </Box>
     </Container>
   );
-};
+}
 
 export default Homepage;
