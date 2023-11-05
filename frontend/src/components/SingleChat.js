@@ -15,7 +15,7 @@ import animationData from "../animations/blueTyping.json";
 import io from "socket.io-client";
 import UpdateGroupChatModal from "./miscellaneous/UpdateGroupChatModal";
 import { ChatState } from "../Context/ChatProvider";
-const ENDPOINT = "https://gochat-c5vg.onrender.com"; //-> After deployment
+const ENDPOINT = "http://localhost:5000"; // "https://talk-a-tive.herokuapp.com"; -> After deployment
 var socket, selectedChatCompare;
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
@@ -163,7 +163,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
       {selectedChat ? (
         <>
           <Text
-            fontSize={{ base: "28px", md: "30px" }}
+            fontSize={{ base: "15px", md: "18px", lg: "23px" }}
             pb={3}
             px={2}
             w="100%"
@@ -174,8 +174,8 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
             alignItems="center"
           >
             <IconButton
-            colorScheme=""
-            size="l"
+              colorScheme=""
+              size="l"
               d={{ base: "flex", md: "none" }}
               icon={<ArrowBackIcon color="" />}
               onClick={() => setSelectedChat("")}
@@ -276,9 +276,30 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
         </>
       ) : (
         // to get socket.io on same page
-        <Box d="flex" alignItems="center" justifyContent="center" h="100%">
-          <Text fontSize="3xl" pb={3} fontFamily="Poppins" color="white">
-            Click on a user to start chatting
+        <Box
+          className="text-shake-container"
+          d="flex"
+          alignItems="center"
+          justifyContent="center"
+          h="100%"
+          flexDirection={"column"}
+          textAlign={"center"}
+        >
+          <Text
+            fontSize={{ base: "15px", md: "25px", lg: "25px" }}
+            pb={3}
+            fontFamily="Poppins"
+            color="white"
+            _hover={{ animation: "shake 0.2s ease infinite" }}
+          >
+            GoChats
+          </Text>
+          <Text
+            fontSize={{ base: "12px", md: "15px", lg: "18px" }} // Adjust the size for the second line
+            fontFamily="Poppins"
+            color="white"
+          >
+            Search Users to chat +
           </Text>
         </Box>
       )}
