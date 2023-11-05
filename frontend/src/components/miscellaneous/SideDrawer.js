@@ -63,7 +63,7 @@ function SideDrawer() {
         status: "warning",
         duration: 5000,
         isClosable: true,
-        position: "top-left",
+        position: "bottom-left",
       });
       return;
     }
@@ -156,14 +156,19 @@ function SideDrawer() {
             </Text>
           </Button>
         </Tooltip>
-        <Text fontSize="2xl" fontFamily="Poppins" color="white">
+        <Text
+          className="text-shake-container"
+          fontSize={{ base: "15px", md: "25px", lg: "25px" }}
+          fontFamily="Poppins"
+          color="white"
+          _hover={{ animation: "shake 0.2s ease infinite" }}
+        >
           GoChat
         </Text>
         <div>
           <Menu>
             <MenuButton p={2}>
               <NotificationBadge
-              
                 count={notification.length}
                 effect={Effect.SCALE}
               />
@@ -200,7 +205,7 @@ function SideDrawer() {
                 src={user.pic}
               />
             </MenuButton>
-            <MenuList  fontFamily="Poppins">
+            <MenuList fontFamily="Poppins">
               <ProfileModal user={user}>
                 <MenuItem>My Profile</MenuItem>{" "}
               </ProfileModal>

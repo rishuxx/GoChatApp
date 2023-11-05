@@ -52,7 +52,7 @@ const MyChats = ({ fetchAgain }) => {
       flexDir="column"
       alignItems="center"
       p={5}
-      backdropFilter="blur(7px)"
+      backdropFilter="blur(3px)"
       w={{ base: "100%", md: "31%" }}
       borderRadius="25px"
       borderWidth="1px"
@@ -60,7 +60,7 @@ const MyChats = ({ fetchAgain }) => {
       <Box
         pb={3}
         px={3}
-        fontSize={{ base: "28px", md: "30px" }}
+        fontSize={{ base: "15px", md: "18px", lg: "23px" }}
         fontFamily="Poppins"
         d="flex"
         w="100%"
@@ -77,10 +77,12 @@ const MyChats = ({ fetchAgain }) => {
             border={"1px"}
             borderColor={"white"}
             borderRadius="10px"
-            fontSize={{ base: "11px", md: "10px", lg: "15px" }}
+            fontSize={{ base: "9px", md: "10px", lg: "12px" }}
             rightIcon={<AddIcon />}
+            w={{ base: "85px", md: "90px", lg: "110px" }}
+            h={{ base: "30px", md: "40px", lg: "50px" }}
           >
-            Group Chat
+            GroupChat
           </Button>
         </GroupChatModal>
       </Box>
@@ -95,7 +97,7 @@ const MyChats = ({ fetchAgain }) => {
         overflowY="hidden"
       >
         {chats ? (
-          <Stack overflowY="scroll" >
+          <Stack overflowY="scroll">
             {chats.map((chat) => (
               <Box
                 onClick={() => setSelectedChat(chat)}
@@ -107,7 +109,12 @@ const MyChats = ({ fetchAgain }) => {
                 borderRadius="13px"
                 key={chat._id}
               >
-                <Text position={"relative"} top="" fontFamily={"Poppins"} fontSize={"lg"}>
+                <Text
+                  position={"relative"}
+                  top=""
+                  fontFamily={"Poppins"}
+                  fontSize={"lg"}
+                >
                   {!chat.isGroupChat
                     ? getSender(loggedUser, chat.users)
                     : chat.chatName}

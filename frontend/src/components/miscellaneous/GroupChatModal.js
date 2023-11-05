@@ -132,9 +132,10 @@ const GroupChatModal = ({ children }) => {
       <Modal onClose={onClose} isOpen={isOpen} isCentered>
         <ModalOverlay />
         <ModalContent
+          h="400px"
+          w={{ base: "", md: "" }}
           position="relative"
-          left="250px"
-          
+          left={{ base: "", md: "250px" }}
           className="mbox"
           borderRadius={"20px"}
           borderWidth={"1px"}
@@ -143,7 +144,7 @@ const GroupChatModal = ({ children }) => {
           backdropFilter="blur(20px)"
         >
           <ModalHeader
-            fontSize="35px"
+            fontSize={{ base: "15px", md: "18px", lg: "20px" }}
             fontFamily="Poppins"
             d="flex"
             justifyContent="center"

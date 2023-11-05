@@ -24,9 +24,8 @@ const ProfileModal = ({ user, children }) => {
       ) : (
         <IconButton
           colorScheme=""
-          size='l'
           d={{ base: "flex" }}
-          icon={<ViewIcon color="white"/>}
+          icon={<ViewIcon color={"white"} />}
           onClick={onOpen}
         />
       )}
@@ -34,9 +33,10 @@ const ProfileModal = ({ user, children }) => {
         <ModalOverlay />
 
         <ModalContent
+          h="400px"
+          w={{ base: "", md: "" }}
           position="relative"
-          left="250px"
-          h="450px"
+          left={{ base: "", md: "250px" }}
           className="mbox"
           borderRadius={"20px"}
           borderWidth={"1px"}
@@ -45,7 +45,7 @@ const ProfileModal = ({ user, children }) => {
           backdropFilter="blur(20px)"
         >
           <ModalHeader
-            fontSize="40px"
+            fontSize="30px"
             fontFamily="Poppins"
             d="flex"
             justifyContent="center"
@@ -60,25 +60,18 @@ const ProfileModal = ({ user, children }) => {
             justifyContent="space-between"
           >
             <Image
+              position={"relative"}
+              top={"30px"}
               borderRadius="full"
               boxSize="150px"
               src={user.pic}
               alt={user.name}
             />
-            <Text fontSize={{ base: "28px", md: "30px" }} fontFamily="Poppins">
+            <Text fontSize={{ base: "15px", md: "30px" }} fontFamily="Poppins">
               Email: {user.email}
             </Text>
           </ModalBody>
-          <ModalFooter>
-            <Button
-              onClick={onClose}
-              variant="ghost"
-              colorScheme="red"
-              fontSize={"xl"}
-            >
-              Close
-            </Button>
-          </ModalFooter>
+          <ModalFooter></ModalFooter>
         </ModalContent>
       </Modal>
     </>

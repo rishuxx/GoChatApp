@@ -207,8 +207,9 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
   return (
     <>
       <IconButton
+        colorScheme=""
         d={{ base: "flex" }}
-        icon={<ViewIcon color={"black"} />}
+        icon={<ViewIcon color={""} />}
         onClick={onOpen}
       />
 

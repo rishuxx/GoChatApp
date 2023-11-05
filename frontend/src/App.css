@@ -4,7 +4,7 @@
   min-height: 100vh;
   display: flex;
   
-  background-image: url("./purple.jpg");
+  background-image: url("./resources/liquid.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -67,3 +67,34 @@
   color: #fff;
                 
 }
+
+.text-shake-container {
+  position: relative;
+}
+
+.text-shake-container:hover .text-shake {
+  animation: shake 1s ease ;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-1px);
+  }
+  40% {
+    transform: translateX(1px);
+  }
+  60% {
+    transform: translateX(-1px);
+  }
+  80% {
+    transform: translateX(2px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+
