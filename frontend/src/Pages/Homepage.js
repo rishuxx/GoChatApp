@@ -74,6 +74,28 @@ function Homepage() {
           </Tabs>
         </Text>
       </Box>
+      <Text
+        position={"fixed"}
+        top={"800px"}
+        left={"130px"}
+        fontSize={{ base: "15px", md: "25px", lg: "40px" }}
+        pb={3}
+        fontFamily="Poppins"
+        color="white"
+        _hover={{ animation: "shake 0.2s ease infinite" }}
+      >
+        GoChat
+      </Text>
+      <Text
+        position={"fixed"}
+        top={"850px"}
+        left={"130px"}
+        fontSize={{ base: "12px", md: "15px", lg: "18px" }} // Adjust the size for the second line
+        fontFamily="Poppins"
+        color="white"
+      >
+        Developed by Rishu
+      </Text>
     </Container>
   );
 }
