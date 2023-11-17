@@ -12,6 +12,7 @@ import React, { useEffect } from "react";
 import Login from "../components/Authentication/Login";
 import Signup from "../components/Authentication/Signup";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import AnimatedCursor from "react-animated-cursor";
 
 function Homepage() {
   const history = useHistory();
@@ -24,6 +25,27 @@ function Homepage() {
 
   return (
     <Container maxW="500px" centerContent>
+      <AnimatedCursor
+        innerSize={7}
+        outerSize={15}
+        color="255, 5, 118"
+        outerAlpha={0.2}
+        innerScale={0.7}
+        outerScale={4}
+        clickables={[
+          "a",
+          'input[type="text"]',
+          'input[type="email"]',
+          'input[type="number"]',
+          'input[type="submit"]',
+          'input[type="image"]',
+          "label[for]",
+          "select",
+          "textarea",
+          "button",
+          ".link",
+        ]}
+      />
       <Box
         className="mbox"
         d="flex"

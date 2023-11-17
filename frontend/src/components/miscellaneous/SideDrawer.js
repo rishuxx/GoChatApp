@@ -31,6 +31,7 @@ import { Effect } from "react-notification-badge";
 import { getSender } from "../../config/ChatLogics";
 import UserListItem from "../userAvatar/UserListItem";
 import { ChatState } from "../../Context/ChatProvider";
+import AnimatedCursor from "react-animated-cursor";
 
 function SideDrawer() {
   const [search, setSearch] = useState("");
@@ -219,6 +220,27 @@ function SideDrawer() {
       <Drawer placement="left" onClose={onClose} isOpen={isOpen}>
         <DrawerOverlay />
         <DrawerContent>
+          <AnimatedCursor
+            innerSize={7}
+            outerSize={15}
+            color="255, 5, 118"
+            outerAlpha={0.2}
+            innerScale={0.7}
+            outerScale={4}
+            clickables={[
+              "a",
+              'input[type="text"]',
+              'input[type="email"]',
+              'input[type="number"]',
+              'input[type="submit"]',
+              'input[type="image"]',
+              "label[for]",
+              "select",
+              "textarea",
+              "button",
+              ".link",
+            ]}
+          />
           <DrawerHeader borderBottomWidth="1px">Search Users</DrawerHeader>
           <DrawerBody>
             <Box d="flex" pb={2}>
